@@ -9,4 +9,5 @@ if (frame) {
         }
     }
 }
+figma.currentPage.setRelaunchData({ open: '' });
 figma.closePlugin();

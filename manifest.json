@@ -2,5 +2,8 @@
   "name": "Now inside!",
   "id": "945329982331973175",
   "api": "1.0.0",
-  "main": "code.js"
+  "main": "code.js",
+  "relaunchButtons": [
+    {"command": "open", "name": "Run Now Inside!"}
+  ]
 }
