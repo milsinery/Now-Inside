@@ -1,3 +1,9 @@
+const allFrames = figma.currentPage.findAll(item => item.parent === figma.currentPage);
+
+for(const item of allFrames) {
+  item.setRelaunchData({ edit: '' });
+}
+
 const frame: FrameNode = figma.currentPage.selection.find(item => item.type === "FRAME") as FrameNode;
 
 if(frame) {
@@ -5,9 +11,12 @@ if(frame) {
 
   if(other.length > 0) {
     for(const item of other) {
-      item.x = item.x - frame.x;
-      item.y = item.y - frame.y;
-      frame.appendChild(item);
+      if(item.parent === figma.currentPage) {
+        item.x = item.x - frame.x;
+        item.y = item.y - frame.y;
+        frame.appendChild(item);
+      }
+
     }
   }
 }
