@@ -1,6 +1,6 @@
-const allFrames = figma.currentPage.findAll(item => item.parent === figma.currentPage);
+const allObjects = figma.currentPage.findAll(item => item.parent === figma.currentPage);
 
-for(const item of allFrames) {
+for(const item of allObjects) {
   item.setRelaunchData({ edit: '' });
 }
 
