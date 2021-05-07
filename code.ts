@@ -15,6 +15,22 @@ const main = () => {
 
   if (!frame) return;
 
+  const calculateCoordinates = (obj, frame) => {
+    const coordinates = {
+      x: obj.x -= frame.x,
+      y: obj.y -= frame.y,
+    };
+
+    if(obj.parent.type !== "PAGE") {
+      coordinates.x += frame.x;
+      coordinates.y += frame.y;
+    }
+
+    if (frame.parent.type === 'PAGE') return coordinates;
+    
+    return calculateCoordinates(obj, frame.parent);
+  };
+
   const other: Array<SceneNode> = figma.currentPage.selection.filter(
     (item) => item.id !== frame.id
   );
@@ -22,8 +38,11 @@ const main = () => {
   if (other.length === 0) return;
 
   for (const item of other) {
-    item.x = item.x - frame.x;
-    item.y = item.y - frame.y;
+    const { x, y } = calculateCoordinates(item, frame);
+
+    item.x = x;
+    item.y = y;
+
     frame.appendChild(item);
   }
 };
