@@ -10,7 +10,7 @@ const setPluginLinkToSidebar = () => {
 
 const main = () => {
   const frame: FrameNode = figma.currentPage.selection.find(
-    (item) => item.type === 'FRAME'
+    (item) => item.type === 'FRAME' && item.layoutMode === "NONE"
   ) as FrameNode;
 
   if (!frame) return;

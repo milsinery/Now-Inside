@@ -5,7 +5,7 @@ const setPluginLinkToSidebar = () => {
     }
 };
 const main = () => {
-    const frame = figma.currentPage.selection.find((item) => item.type === 'FRAME');
+    const frame = figma.currentPage.selection.find((item) => item.type === 'FRAME' && item.layoutMode === "NONE");
     if (!frame)
         return;
     const calculateCoordinates = (obj, frame) => {
