@@ -1,13 +1,3 @@
-const setPluginLinkToSidebar = () => {
-  const allObjects = figma.currentPage.findAll(
-    (item) => item.parent === figma.currentPage
-  );
-
-  for (const item of allObjects) {
-    item.setRelaunchData({ edit: '' });
-  }
-};
-
 const main = () => {
   const frame: FrameNode = figma.currentPage.selection.find(
     (item) => item.type === 'FRAME' && item.layoutMode === "NONE"
@@ -47,7 +37,6 @@ const main = () => {
   }
 };
 
-setPluginLinkToSidebar();
 main();
 figma.currentPage.setRelaunchData({ open: '' });
 figma.closePlugin();

@@ -1,9 +1,3 @@
-const setPluginLinkToSidebar = () => {
-    const allObjects = figma.currentPage.findAll((item) => item.parent === figma.currentPage);
-    for (const item of allObjects) {
-        item.setRelaunchData({ edit: '' });
-    }
-};
 const main = () => {
     const frame = figma.currentPage.selection.find((item) => item.type === 'FRAME' && item.layoutMode === "NONE");
     if (!frame)
@@ -31,7 +25,6 @@ const main = () => {
         frame.appendChild(item);
     }
 };
-setPluginLinkToSidebar();
 main();
 figma.currentPage.setRelaunchData({ open: '' });
 figma.closePlugin();

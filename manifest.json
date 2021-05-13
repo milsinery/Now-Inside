@@ -4,7 +4,6 @@
   "api": "1.0.0",
   "main": "code.js",
   "relaunchButtons": [
-    {"command": "open", "name": "Run Now Inside!"},
-    {"command": "edit", "name": "Run Now Inside!", "multipleSelection": true}
+    {"command": "open", "name": "Run Now Inside!"}
   ]
 }
